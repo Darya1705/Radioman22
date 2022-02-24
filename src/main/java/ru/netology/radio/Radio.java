@@ -3,21 +3,27 @@ package ru.netology.radio;
 public class Radio {
     private int currentChanel;
     private int currentVolume;
-    private int Chanel = 10;
+    private int numberChanel = 10-1;
 
-    public Radio(int currentChanel, int currentVolume, int chanel) {
-        this.currentChanel = currentChanel;
-        this.currentVolume = currentVolume;
-        Chanel = chanel;
+
+    public Radio(int numberChanel) {
+        this.numberChanel = numberChanel - 1;
     }
+
+    public Radio(){
+
+    }
+
+    public int getNumberChanel() {
+        return this.numberChanel;
+    }
+
 
     public int getCurrentChanel() {
         return currentChanel;
     }
 
-
-    public void setChanel(int Chanel) {
-
+    public void setCurrentChanel(int currentChanel) {
         if (currentChanel < 0) {
             currentChanel = 9;
         }
@@ -27,34 +33,35 @@ public class Radio {
         this.currentChanel = currentChanel;
     }
 
-    public void next2() {
-        setChanel(currentChanel = currentChanel + 1);
+    public void next() {
+        setCurrentChanel(currentChanel = currentChanel +1);
     }
 
-    public void prev2() {
-        setChanel(currentChanel = currentChanel - 1);
+    public void prev() {
+        setCurrentChanel(currentChanel = currentChanel -1);
     }
 
-
-    public int getVolume() {
+    public int getCurrentVolume() {
         return currentVolume;
     }
 
-    public void setVolume(int Volume) {
+    public void setCurrentVolume(int currentVolume) {
         if (currentVolume <= 0) {
             currentVolume = 0;
         }
-        if (currentVolume >= 100) {
-            currentVolume = 100;
+        if (currentVolume >= 10) {
+            currentVolume = 10;
         }
         this.currentVolume = currentVolume;
     }
 
-    public void up2() {
-        setVolume(currentVolume = currentVolume + 1);
+    public void up() {
+        setCurrentVolume(currentVolume = currentVolume +1);
     }
 
-    public void down2() {
-        setVolume(currentVolume = currentVolume - 1);
+    public void down() {
+        setCurrentVolume(currentVolume = currentVolume -1);
     }
+
 }
+
